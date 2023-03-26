@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
   $filename=$_FILES['image']['name'];
   $tempname=$_FILES['image']['tmp_name'];
 
-  move_uploaded_file($tempname, 'uploads/' .$filename);
+  move_uploaded_file($tempname, 'uploads/Slider/' .$filename);
 
   date_default_timezone_set('Asia/Kolkata');
 

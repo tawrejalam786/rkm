@@ -1,9 +1,9 @@
 :root {
-    --no-of-slides: 6;
-    --slides-in-view: 6;
-    --slide-width: 400px;
-    --slide-height: 300px;
-    --iteration-time: 10s;
+    --no-of-slides: 8;
+    --slides-in-view: 8;
+    --slide-width: 1200px;
+    --slide-height: 600px;
+   --iteration-time: 1s; 
   }
   
   @keyframes scroll {
@@ -11,8 +11,12 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(var(--slide-width) * var(--no-of-slides)* -1));
+      transform: translateX(calc(var(--slide-width) * var(--no-of-slides)* 8));
     }
+  }
+
+  .carouselt{
+    top: 75%;
   }
   
   .carousel__wrapper {
@@ -25,73 +29,15 @@
     margin: 0 auto;
     z-index: -1;
   }
-
-  .carousel__image {
-    position: relative;
-  }
-
-  .carousel__image .image_overlay2{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 95%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-    transition: background 0.5s ease;
-  }
-
-  .carousel__image:hover .title2 {
-    top: 40px !important;
-  }
-
-  .carousel__image:hover .bton2 {
-    opacity: 1;
-  }
-
-  .carousel__image .title2 .button2 {
-    position: absolute;
-    width: 40px;
-    left: 0%;
-    top: 10%;
-    text-align: center;
-    opacity: 0;
-    transition: opacity .35s ease;
-  }
-
-  .bton2 .button2 a:hover {
-    background-color:#0a0a23;
-    transition: 1s;
-  }
-
-  .button2 a {
-    width: 70px;
-    padding: 6px 5px;
-    text-align: center;
-    color: #fff;
-    border: solid 2px  rgba(0, 0, 0, .3);
-    font-weight: 500;
-    z-index: 1;
-    font-size: 0.7rem;
-    text-decoration: none;
-    display: flex;
-  }
-
-  .carousel__image:hover .button2 {
-    opacity: 1;
-  }
-  .bton2 {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-  } 
   
   .carousel {
      padding: 0px 0;
      overflow: hidden;
-     width: calc(2 * var(--no-of-slides));
+     width: calc(0 * var(--no-of-slides));
   }
   
+
+
   .carousel__slide {
     animation: scroll var(--iteration-time) linear infinite;
     display: flex;

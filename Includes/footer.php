@@ -1,88 +1,137 @@
 
 
- <footer class="ftco-footer bg-light ftco-section">
-      <div class="container">
-      	<div class="row">
-      		<div class="mouse">
-						<a href="#" class="mouse-icon">
-							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
-						</a>
-					</div>
-      	</div>
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Tabrez</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Menu</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Journal</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Help</h2>
-              <div class="d-flex">
-	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-	              </ul>
-	              <ul class="list-unstyled">
-	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
-	                <li><a href="#" class="py-2 d-block">Contact</a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">TC-48. Pandav Nagar, Shadipur, New Delhi, India</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 7838 195 948</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">TAWREJA.786@GMAIL.COM</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-						 <div style='font-size:1px; opacity=0'> Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Website is made with 
-						  <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="#" target="_blank">Tabrez</a>
-						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-						</p>
-						Copyright All rights reserved | This Website is made with 
-							<i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="#" target="_blank">Tabrez</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
+ <!-- Footer section -->
   
+ <footer class="mainfooter" style="background-color: #131921;margin-top: 15px;" role="contentinfo">  
+  <div class="footer-middle">  
+  <div class="container">  
+    <div class="row pb-5">  
+      <div class="col-md-3 col-sm-6 col-lg-3 pt-3">  
+        <div class="footer-pad">  
+          <h4>Payment Getway</h4>  
+          <ul class="list-unstyled" style="width: 170px;">  
+            <li> <a href="#"> </a> </li>  
+            <li> <a href="#">Payment Center</a></li>  
+            <li> <a href="#"> Contact Directory </a></li>  
+            <li> <a href="#">Forms</a></li>  
+            <li> <a href="#">News and Updates</a></li>  
+            <li> <a href="#">FAQs</a></li>  
+          </ul>  
+        </div>  
+      </div>  
+      <div class="col-md-3 col-sm-6 col-lg-3 pt-3">  
+        <div class="footer-pad">  
+          <h4>Quick Links</h4>  
+          <ul class="list-unstyled" style="width: 130px;">  
+            <li><a href="#"> Blog </a> </li>  
+            <li><a href="#">Accessibility</a> </li>  
+            <li><a href="#">Disclaimer</a></li>  
+            <li><a href="#">Privacy Policy</a></li>  
+            <li><a href="#">FAQs</a></li>  
+            <li><a href="#">Webmaster hero</a></li>  
+          </ul>  
+        </div>  
+      </div>  
+      <div class="col-md-3 col-sm-6 col-lg-3 pt-3">  
+        <div class="footer-pad">  
+          <h4> Contact Us </h4>  
+          <ul class="list-unstyled" style="width: 120px;">  
+            <li> <a href="#"> Parks </a> </li>  
+            <li> <a href="#"> Public Works </a> </li>  
+            <li> <a href="#"> Department</a> </li>  
+            <li> <a href="#"> Hero Fire </a> </li>  
+            <li> <a href="#"> City Council </a> </li>  
+          </ul>  
+        </div>  
+      </div>  
+        <div class="col-md-3 col-lg-3 pt-3">  
+            <h4 class="pb-2"> Follow Us </h4>  
+            <ul class="social-network social-circle">  
+             <li> <a href="#" class="icoFacebook" title="Facebook"> <i class="fa fa-facebook"> </i> </a> </li>  
+             <li> <a href="#" class="icoLinkedin" title="Linkedin"> <i class="fa fa-linkedin"> </i> </a> </li>  
+             <li> <a href="#" class="iconInstagram" title="Instagram"> <i class="fa-brands fa-instagram"> </i> </a> </li> 
+            </ul>               
+    </div>  
+    </div>  
+    <div class="row">  
+      <div class="credit-cards" style="text-align: center; width: 100%">
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_master.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_unionpay.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_linepay.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_tw_711_pay.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_tw_fm_pay.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_taishin.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_amex.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_ecpay.png"/>
+        <img height="40" src="https://shoplineimg.com/assets/footer/card_jcb.png"/>
+      </div>
+    <div class="col-md-12 copy">  
+    <p class="text-center"> © Copyright 2023 - RKM TECH PVT LTD.  All rights reserved. </p>  
+    </div>  
+    </div>  
+  </div>  
+  </div>  
+</footer>  
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-	<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-	<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
-</svg>
-</div>
+<script>
+  // Page loading animation
+$(window).on('load', function() {
+  if($('.cover').length){
+    $('.cover').parallax({
+      imageSrc: $('.cover').data('image'),
+      zIndex: '1'
+    });
+  }
+
+  $("#preloader").animate({
+    'opacity': '0'
+  }, 600, function(){
+    setTimeout(function(){
+      $("#preloader").css("visibility", "hidden").fadeOut();
+    }, 300);
+  });
+});
+</script>
+
+
+<script>
+  $(document).ready(function(){
+    $('.productslide').slick({
+      infinite: true,
+      slidesToShow: 3,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      slidesToScroll: 4
+});
+  });
+</script>
+
+
+ <!-- Popup for website -->
+ <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=2f61e6416fcd5' async='true'></script> 
+ <!-- Popup end here -->
+
+    <script src="JS/tab-pils.js"></script>
+    <!-- jquery back to top button -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="JS/back-to-top.js"></script>
+    <!-- jquery back to top end -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="JS/index.js">
+    <!-- Scripts -->
+  <script src="JQuery/app.js" charset="utf-8"></script>
+
+  <!-- Jquery for carousle slick slider -->
+        <script src="JS/jquery-3.6.4.min.js"></script>
+        <script src="JS/slick.min.js"></script>
+  <!-- Jquery end here for slick slider -->
+
+  <!-- togglelbar -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/e747e308d6.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

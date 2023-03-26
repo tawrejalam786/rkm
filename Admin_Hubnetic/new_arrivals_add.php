@@ -14,21 +14,24 @@ if(isset($_POST['submit']))
   $filename=$_FILES['image']['name'];
   $tempname=$_FILES['image']['tmp_name'];
 
-  move_uploaded_file($tempname, 'uploads/' .$filename);
+  move_uploaded_file($tempname, 'uploads/New Arrivals/' .$filename);
 
   date_default_timezone_set('Asia/Kolkata');
 
   date('y-m-d H:i:sA');
 
   $data=array(
-    "heading"=>"'".$_POST['heading']."'",
+    "Head_content"=>"'".$_POST['head_content']."'",
     "image"=>"'".$filename."'",
-    "amount"=>"'".$_POST['amount']."'",
+    "product_title"=>"'".$_POST['product_title']."'",
+    "product_amount"=>"'".$_POST['product_amount']."'",
+    "product_url"=>"'".$_POST['product_url']."'",
+    "product_url2"=>"'".$_POST['product_url2']."'",
     "created_at"=>"'".date('y-m-d h:i:sA')."'"
   );
 
-  insert($data,'best_seller');
-  header("location:bests.php");
+  insert($data,'new_arrivals');
+  header("location:new_arrivals.php");
 
 }
 
@@ -87,13 +90,13 @@ if(isset($_POST['submit']))
               <div class="home-tab">
               
   
-        <center><h2 style="padding-bottom:20px;font-weight:900;">Best Seller Add</h2> </center>      
-        <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="product_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+        <center><h2 style="padding-bottom:20px;font-weight:900;">New Arrivals Add Field</h2> </center>      
+        <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="new_arrivals.php" style="text-decoration:none;color:white;"> Back</a></button>
               
               <form method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <label>Heading</label>
-                <input type="text" class="form-control" placeholder="Enter Your Heading" name="heading">
+                <label>Head Content</label>
+                <input type="text" class="form-control" placeholder="Enter Your Head Content" name="head_content">
               </div>
               <br>
 
@@ -102,14 +105,32 @@ if(isset($_POST['submit']))
                 <input type="file" class="form-control" name="image">
                 <br>
               
-
-              <div class="form-group">
-                <label>Amount</label>
-                <input type="text" class="form-control" placeholder="Enter Your Amount" name="amount">
+                <div class="form-group">
+                <label>Product Title</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Title" name="product_title">
               </div>
               <br>
 
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+              <div class="form-group">
+                <label>Product Amount</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Amount" name="product_amount">
+              </div>
+              <br>
+
+              <div class="form-group">
+                <label>Buy Product Url</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Url" name="product_url">
+              </div>
+              <br>
+
+              <div class="form-group">
+                <label>Add to cart Url</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Url" name="product_url2">
+              </div>
+              <br>
+
+              <button type="submit" name="submit" class="btn btn-primary">Add Field</button>
             </form>
 
 

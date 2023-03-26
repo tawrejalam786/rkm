@@ -1,51 +1,22 @@
-<?php 
+<?php
 
 include('../includes/connection.php');
 include('./include/allfunction.php');
 
 session_start();
-if(!isset($_SESSION['USERNAME'])) 
+if(!isset($_SESSION['USERNAME']))
 {
    header('location:login.php');
 }
 
-$id=$_GET['editid'];
-
-$data= editdata('best_seller',$id);
-
-if(isset($_POST['submit']))
+if(isset($_GET['delid']))
 {
-  if(!empty($_FILES['image']['name']))
-  {
-  $filename=$_FILES['image']['name'];
-  $tempname=$_FILES['image']['tmp_name'];
+  $id=$_GET['delid'];
 
-  move_uploaded_file($tempname, 'uploads/' .$filename);
-
-  date_default_timezone_set('Asia/Kolkata');
-
-  date('y-m-d h:i:sA');
-  }
-
-  else
-  {
-    $filename=$_POST['oldimage'];
-  }
-
-  $data=array(
-    "heading"=>"'".$_POST['heading']."'",
-    "image"=>"'".$filename."'",  
-    "amount"=>"'".$_POST['amount']."'",
-    "updated_at"=>"'".date('y-m-d h:i:sA')."'"
-  );
-
-  update($data,'best_seller',$id);
-  header("location:bests.php");
-
+  deletedata('tabdetails',$id);
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,44 +67,52 @@ if(isset($_POST['submit']))
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-sm-11">
+            <div class="col-sm-12">
               <div class="home-tab">
-              
-  
-              <center><h2 style="padding-bottom:30px;font-weight:900;">Best Seller Edit!</h2> </center>      
-              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="product_add.php" style="text-decoration:none;color:white;"> Add</a></button>
-              
-              <form method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label>Heading</label>
-                <input type="text" class="form-control" placeholder="Enter Your Heading" name="heading" value="<?php echo $data['heading']; ?>">
-              </div>
-              <br>
-
-
-              <label>Image</label>
-                <input type="file" class="form-control" name="image">
-                <br>
-
-                <img src="uploads/<?php echo $data['image']; ?>" style="height: 80px;"><br>
-
-                <input type="hidden" name="oldimage"  value="<?php echo $data['image']; ?>">
-                <br>
-              
-
-              <div class="form-group">
-                <label>Amount</label>
-                <input type="text" class="form-control" placeholder="Enter Your Amount" name="amount" value="<?php echo $data['amount']; ?>">
-              </div>
-              <br>
-
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </form>
-
-
-              
-              
                 
+
+              <center><h2 style="padding-bottom:30px;font-weight:900;">Tab-Details Section!</h2> </center>      
+              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="tabdetails_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+              
+              <div class="table-responsive" style="overflow-y: hidden;padding-top:40px;">
+              <table class="table table-dark table-hover" border="1px solid">
+    <thead>
+      <tr>
+        <th>Brand Image</th>
+        <th>Product Url</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+     <?php
+
+    $select= whiledata("tabdetails");
+
+    while($data=mysqli_fetch_array($select))
+
+    {
+
+    ?>
+
+
+      <tr>
+        <td><img src="../Admin_Hubnetic/uploads/Tabdetails/<?php echo $data['image']; ?>" style="height: 80px;"></td>
+        <td style="word-wrap: break-word;max-width: 160px;white-space: normal!important;"><?php echo $data['product_url']; ?></td>
+        <td>
+        <a href="tabdetails_edit.php?editid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to Edit this data')" class="text-light btn btn-primary">Edit</a>
+
+        <a href="tabdetails.php?delid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to delete this data')" class="text-light btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    
+    </tbody>
+    <?php } ?>
+  
+  </table>
+</div>
+
+              
               </div>
             </div>
           </div>
@@ -177,4 +156,3 @@ if(isset($_POST['submit']))
 </body>
 
 </html>
-

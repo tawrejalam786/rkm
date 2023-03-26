@@ -84,14 +84,15 @@ else
               <center><h2 style="padding-bottom:20px;font-weight:900;font-size:28px;">Testimonials</h2> </center>
 
               <div class="table-responsive" style="overflow-y: hidden;padding-top:40px;">      
-              <button type="add" name="add" style="float:right;color:white;padding:12px 24px;" class="btn btn-primary"> <a href="testimonial_add.php" style="text-decoration:none;color:white;"> Add</a></button>   
+              <button type="add" name="add" style="float:right;color:white;padding:12px 24px;" class="btn btn-primary"> <a href="testimonial_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>   
   <table class="table table-dark table-hover">
     <thead>
       <tr>
         <th>Image</th>
-        <th>Description</th>
-        <th>Name</th>
-        <th>Designation</th>
+        <th>Head Content</th>
+        <th>Customer Name</th>
+        <th>Subheading</th>
+        <th>Customer Reviews</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -104,10 +105,11 @@ $result=selectalldata('testimonials');
 while($data=mysqli_fetch_array($result))
 {?>
       <tr>
-        <td><img src="uploads/<?php echo $data['image']; ?>" style="height: 80px;"></td>
-        <td style="word-wrap: break-word;max-width: 160px;white-space: normal!important;"><?php echo $data['description'];?></td>
-        <td><?php echo $data['name'];?></td>
-        <td><?php echo $data['designation'];?></td>
+        <td><img src="uploads/Testimonial/<?php echo $data['image']; ?>" style="height: 80px;"></td>
+        <td style="word-wrap: break-word;max-width: 160px;white-space: normal!important;"><?php echo $data['Head_content'];?></td>
+        <td><?php echo $data['customer_name'];?></td>
+        <td style="word-wrap: break-word;max-width: 160px;white-space: normal!important;"><?php echo $data['subheading'];?></td>
+        <td><?php echo $data['Reviews'];?></td>
         <td><a href="testimonial_edit.php?editid=<?php echo $data['id'];?>" style="color: white;padding: 8px 14px;background-color: blue;font-weight: 700;">Edit</a><br><br><br>
         <a href="testimonial.php?delid=<?php echo $data['id'];?>" onclick="return confirm(' DO you want to delete this data ')" style="color: white;padding: 8px 14px;background-color: blue;font-weight: 700;">Delete</a>
       </td>

@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
   $filename=$_FILES['image']['name'];
   $tempname=$_FILES['image']['tmp_name'];
 
-  move_uploaded_file($tempname, 'uploads/' .$filename);
+  move_uploaded_file($tempname, 'uploads/Testimonial/' .$filename);
 
   date_default_timezone_set('Asia/Kolkata');
 
@@ -35,9 +35,10 @@ if(isset($_POST['submit']))
 
   $data=array(
     "image"=>"'".$filename."'",  
-    "description"=>"'".$_POST['description']."'",
-    "name"=>"'".$_POST['name']."'",
-     "designation"=>"'".$_POST['designation']."'",  
+    "Head_content"=>"'".$_POST['head_content']."'",
+    "subheading"=>"'".$_POST['subheading']."'",  
+    "customer_name"=>"'".$_POST['c_name']."'",
+    "Reviews"=>"'".$_POST['r_customer']."'",
     "updated_at"=>"'".date('y-m-d h:i:sA')."'"
   );
 
@@ -100,8 +101,8 @@ if(isset($_POST['submit']))
               <div class="home-tab">
                 
 
-              <center><h2 style="padding-bottom:30px;font-weight:900;">Testimonials!</h2> </center>      
-              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="blog_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+              <center><h2 style="padding-bottom:30px;font-weight:900;">Testimonials Edit Field!</h2> </center>      
+              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="blog_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>
               
               <div class="container my-5">
             <form method="POST" enctype="multipart/form-data">
@@ -110,34 +111,36 @@ if(isset($_POST['submit']))
                 <input type="file" class="form-control" name="image">
                 <br>
 
-                <img src="uploads/<?php echo $data['image']; ?>" style="height: 80px;"><br>
+                <img src="uploads/Testimonial/<?php echo $data['image']; ?>" style="height: 80px;"><br>
 
                 <input type="hidden" name="oldimage"  value="<?php echo $data['image']; ?>">
                 <br>
 
                 <div class="form-group">
-                <label>Description</label>
-                <input type="text" class="form-control" placeholder="Enter Your description" name="description" value="<?php echo $data['description']; ?>">
+                <label>Head Content</label>
+                <input type="text" class="form-control" placeholder="Enter Your Head Content" name="head_content" value="<?php echo $data['Head_content']; ?>">
               </div>
-              <br>
-
-              
+              <br>    
 
               <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter Your name" name="name" value="<?php echo $data['name']; ?>">
+                <label>Subheading</label>
+                <input type="text" class="form-control" placeholder="Enter Your Subheading" name="subheading" value="<?php echo $data['subheading']; ?>">
               </div>
               <br>
-
-              
 
               <div class="form-group">
-                <label>Designation</label>
-                <input type="text" class="form-control" placeholder="Enter Your designation" name="designation" value="<?php echo $data['designation']; ?>">
+                <label>Customer Name</label>
+                <input type="text" class="form-control" placeholder="Enter Your Customer name" name="c_name" value="<?php echo $data['customer_name']; ?>">
+              </div>
+              <br>  
+
+              <div class="form-group">
+                <label>Customer Reviews</label>
+                <input type="text" class="form-control" placeholder="Enter Your Customer Reviews" name="r_customer" value="<?php echo $data['Reviews']; ?>">
               </div>
               <br>
 
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" name="submit" class="btn btn-primary">Update Field</button>
             </form>
           </div>
               

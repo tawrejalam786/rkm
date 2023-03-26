@@ -3,38 +3,20 @@
 include('../includes/connection.php');
 include('./include/allfunction.php');
 
+//$data= editdata('best_seller','3');
+
 session_start();
 if(!isset($_SESSION['USERNAME']))
 {
    header('location:login.php');
 }
 
-
-if(isset($_POST['submit']))
+if(isset($_GET['delid']))
 {
-  $filename=$_FILES['image']['name'];
-  $tempname=$_FILES['image']['tmp_name'];
-  
+  $id=$_GET['delid'];
 
-  move_uploaded_file($tempname, 'uploads/Testimonial/' .$filename);
-
-  date_default_timezone_set('Asia/Kolkata');
-
-  date('y-m-d h:i:sA');
-
-  $data=array(
-    "image"=>"'".$filename."'",
-    "Head_content"=>"'".$_POST['head_content']."'",
-    "subheading"=>"'".$_POST['subheading']."'",
-    "customer_name"=>"'".$_POST['c_name']."'",
-    "Reviews"=>"'".$_POST['r_customer']."'",
-    "created_at"=>"'".date('y-m-d h:i:sA')."'"
-  );
-
-  insert($data,'testimonials');
-  header("location:testimonial.php");
+  deletedata('new_arrivals',$id);
 }
-
 
 ?>
 
@@ -87,55 +69,52 @@ if(isset($_POST['submit']))
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-sm-11">
+            <div class="col-sm-12">
               <div class="home-tab">
                 
 
-              <center><h2 style="padding-bottom:30px;font-weight:900;">Testimonial Add Field!</h2> </center>      
-              <button type="add" name="add" style="float:right;margin-right:70px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>
-              <button type="back" name="back" style="float:left;margin-left: 32px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial.php" style="text-decoration:none;color:white;"> Back</a></button>
-              
-              <table class="table table-dark table-hover">
-    
-              <div class="container pt-5 my-5">
-            <form method="post" enctype="multipart/form-data">
-              
-                <label>Image</label>
-                <input type="file" class="form-control" name="image">
-                <br>
+              <center><h2 style="padding-bottom:20px;font-weight:900;">Checkout New Arrivals</h2> </center>      
+              <button type="add" name="add" style="float:right;color:white;padding:12px 24px;" class="btn btn-primary"> <a href="new_arrivals_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>
+              <div class="table-responsive" style="overflow-y: hidden;padding-top:40px;">
+              <table class="table table-dark table-hover" border="1px solid">
+              <thead>
+                <tr>            
+                  <th>Head Content</th>
+                  <th>Image</th>
+                  <th>Product Title</th>
+                  <th>Product Amount</th>
+                  <th>Buy Url</th>
+                  <th>Add To Cart Url 2</th>
+                  <th>Status</th>           
+                </tr>
+              </thead>
+              <tbody>
 
-                <div class="form-group">
-                <label>Head Content</label>
-                <input type="text" class="form-control" placeholder="Enter Your Head Content" name="head_content">
-              </div>
+              <?php
 
-              <div class="form-group">
-                <label>Subheading</label>
-                <input type="text" class="form-control" placeholder="Enter Your Subheading" name="subheading">
-              </div>
+        $select=whiledata("new_arrivals");
+
+        while($data=mysqli_fetch_array($select))
+         { ?>
+                <tr>            
+                  <td><?php echo $data['Head_content']; ?></td>
+                  <td><img src="../Admin_Hubnetic/uploads/New Arrivals/<?php echo $data['image']; ?>" style="height: 80px;"></td>
+                  <td><?php echo $data['product_title']; ?></td>
+                  <td><?php echo $data['product_amount']; ?></td>
+                  <td><?php echo $data['product_url']; ?></td>
+                  <td><?php echo $data['product_url2']; ?></td>
+                  <td>
+                    <a href="new_arrivals_edit.php?editid=<?php echo $data['ID']; ?>" onclick="return confirm('Do you want to edit this data')" class="text-light btn btn-primary">Edit</a>
+
+                    <a href="new_arrivals.php?delid=<?php echo $data['ID']; ?>" onclick="return confirm('Do you want to delete this data')" class="text-light btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+              <?php } ?>
+            </table>
             
-              <br>
-
-                <div class="form-group">
-                <label>Customer Name</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Name" name="c_name">
-              </div>
-              <br>
-
-
-              <div class="form-group">
-                <label>Customer Reviews</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Reviews" name="r_customer">
-              </div>
-              <br>
-
-
-
-              <button type="submit" name="submit" style="font-size: 16px;padding:14px 24px;font-weight:700;" class="btn btn-primary">Add Field</button>
-            </form>
-          </div>
+        </div>
               
-                
               </div>
             </div>
           </div>

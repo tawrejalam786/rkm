@@ -1,42 +1,54 @@
-<?php
+<?php 
 
 include('../includes/connection.php');
 include('./include/allfunction.php');
 
 session_start();
-if(!isset($_SESSION['USERNAME']))
+if(!isset($_SESSION['USERNAME'])) 
 {
    header('location:login.php');
 }
 
+$id=$_GET['editid'];
+
+$data= editdata('new_arrivals',$id);
 
 if(isset($_POST['submit']))
 {
+  if(!empty($_FILES['image']['name']))
+  {
   $filename=$_FILES['image']['name'];
   $tempname=$_FILES['image']['tmp_name'];
-  
 
-  move_uploaded_file($tempname, 'uploads/Testimonial/' .$filename);
+  move_uploaded_file($tempname, 'uploads/New Arrivals/' .$filename);
 
   date_default_timezone_set('Asia/Kolkata');
 
   date('y-m-d h:i:sA');
+  }
+
+  else
+  {
+    $filename=$_POST['oldimage'];
+  }
 
   $data=array(
-    "image"=>"'".$filename."'",
     "Head_content"=>"'".$_POST['head_content']."'",
-    "subheading"=>"'".$_POST['subheading']."'",
-    "customer_name"=>"'".$_POST['c_name']."'",
-    "Reviews"=>"'".$_POST['r_customer']."'",
-    "created_at"=>"'".date('y-m-d h:i:sA')."'"
+    "image"=>"'".$filename."'",  
+    "product_title"=>"'".$_POST['product_title']."'",
+    "product_amount"=>"'".$_POST['product_amount']."'",
+    "product_url"=>"'".$_POST['product_url']."'",
+    "product_url2"=>"'".$_POST['product_url2']."'",
+    "updated_at"=>"'".date('y-m-d h:i:sA')."'"
   );
 
-  insert($data,'testimonials');
-  header("location:testimonial.php");
+  update($data,'new_arrivals',$id);
+  header("location:new_arrivals.php");
+
 }
 
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -89,51 +101,57 @@ if(isset($_POST['submit']))
           <div class="row">
             <div class="col-sm-11">
               <div class="home-tab">
-                
+              
+  
+              <center><h2 style="padding-bottom:30px;font-weight:900;">New Arrivals Edit Field!</h2> </center>      
+              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="new_arrivals_add.php" style="text-decoration:none;color:white;"> Back</a></button>
+              
+              <form method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label>Head Content</label>
+                <input type="text" class="form-control" placeholder="Enter Your Heading" name="head_content" value="<?php echo $data['Head_content']; ?>">
+              </div>
+              <br>
 
-              <center><h2 style="padding-bottom:30px;font-weight:900;">Testimonial Add Field!</h2> </center>      
-              <button type="add" name="add" style="float:right;margin-right:70px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>
-              <button type="back" name="back" style="float:left;margin-left: 32px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial.php" style="text-decoration:none;color:white;"> Back</a></button>
-              
-              <table class="table table-dark table-hover">
-    
-              <div class="container pt-5 my-5">
-            <form method="post" enctype="multipart/form-data">
-              
-                <label>Image</label>
+
+              <label>Image</label>
                 <input type="file" class="form-control" name="image">
                 <br>
 
-                <div class="form-group">
-                <label>Head Content</label>
-                <input type="text" class="form-control" placeholder="Enter Your Head Content" name="head_content">
-              </div>
+                <img src="uploads/New Arrivals/<?php echo $data['image']; ?>" style="height: 80px;"><br>
 
-              <div class="form-group">
-                <label>Subheading</label>
-                <input type="text" class="form-control" placeholder="Enter Your Subheading" name="subheading">
-              </div>
-            
-              <br>
+                <input type="hidden" name="oldimage"  value="<?php echo $data['image']; ?>">
+                <br>
 
                 <div class="form-group">
-                <label>Customer Name</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Name" name="c_name">
+                <label>Product Title</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Title" name="product_title" value="<?php echo $data['product_title']; ?>">
               </div>
               <br>
-
 
               <div class="form-group">
-                <label>Customer Reviews</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Reviews" name="r_customer">
+                <label>Product Amount</label>
+                <input type="text" class="form-control" placeholder="Enter Your Amount" name="product_amount" value="<?php echo $data['product_amount']; ?>">
               </div>
               <br>
 
+              <div class="form-group">
+                <label>Buy Product Url</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Url" name="product_url" value="<?php echo $data['product_url']; ?>">
+              </div>
+              <br>
 
+              <div class="form-group">
+                <label>Add to Cart Url</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Url2" name="product_url2" value="<?php echo $data['product_url2']; ?>">
+              </div>
+              <br>
 
-              <button type="submit" name="submit" style="font-size: 16px;padding:14px 24px;font-weight:700;" class="btn btn-primary">Add Field</button>
+              <button type="submit" name="submit" class="btn btn-primary">Update Field</button>
             </form>
-          </div>
+
+
+              
               
                 
               </div>

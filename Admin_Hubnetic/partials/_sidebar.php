@@ -22,6 +22,13 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="infinity_slider.php">
+              <i class="mdi mdi-view-carousel menu-icon"></i>
+              <span class="menu-title">Infinity Sliders</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="carousel_product.php">
               <i class="mdi mdi-view-carousel menu-icon"></i>
               <span class="menu-title">Carousel Product</span>
@@ -29,9 +36,9 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="bests.php">
+            <a class="nav-link" href="new_arrivals.php">
               <i class="mdi mdi-tshirt-crew menu-icon"></i>
-              <span class="menu-title">Best Sellers</span>
+              <span class="menu-title">New Arrivals</span>
             </a>
           </li>
           
@@ -61,6 +68,13 @@
             <a class="nav-link" href="tabbar.php">
               <i class="mdi mdi-bullhorn menu-icon"></i>
               <span class="menu-title">Tabbar</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="tabdetails.php">
+              <i class="mdi mdi-bullhorn menu-icon"></i>
+              <span class="menu-title">Tab Details</span>
             </a>
           </li>
 

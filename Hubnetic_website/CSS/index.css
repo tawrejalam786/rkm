@@ -289,7 +289,6 @@ header {
   }
 
 
-  
 
   /* navbar end */
 
@@ -498,7 +497,7 @@ section {
   .mbr-bg-white {
 	background-color: #ffffff; }
   
-  
+
   
   /*# sourceMappingURL=style.css.map */
   .engine {
@@ -1682,9 +1681,98 @@ color: #fff;
   background: rgba(0, 0, 0, .3);
 }
 
+.carousel__image{
+	position: relative;
+}
+
+.carousel__image .image_overlay2{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 95%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+	transition: background 0.5s ease;
+  }
+
+  .carousel__image:hover .image_overlay2 {
+	display: block;
+	background: rgba(0, 0, 0, .3);
+  }
+
+   .title2 {
+	position: absolute;
+	width: 500;
+	left: 20%;
+	top: 80%;
+	font-weight: 700;
+	font-size: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #0a0a23;
+	z-index: 1;
+	transition: top .5s ease;
+  }
+
+  .carousel__image:hover .title2 {
+	top: 180px !important;
+  }
+  .carousel__image:hover .bton2 {
+	opacity: 1;
+  }
+
+  .carousel__image .title2 .button2 {
+	position: absolute;
+	width: 430px;
+	left: 0%;
+	top: 15%;
+	text-align: center;
+	opacity: 0;
+	transition: opacity .35s ease;
+  }
+
+  .bton2 .button2 a:hover {
+	background-color:#0a0a23;
+	transition: 1s;
+  }
+  .bton2 .button2 a {
+	margin-top: 50%;
+  }
+  .button2 a {
+	width: 200px;
+	padding: 12px 50px;
+	text-align: center;
+	color: #fff;
+	border: solid 2px  rgba(0, 0, 0, .3);
+	font-weight: 700;
+	z-index: 1;
+	font-size: 1rem;
+	text-decoration: none;
+	display: flex;
+	
+  }
 
 
-/* Media Query 768px start from here */
+  .carousel__image:hover .button2 {
+	opacity: 1;
+  }
+  .bton2 {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	opacity: 0;
+  }
+
+  .carousel__image .title2 .content-title2 {
+	font-size: 1rem;
+  }
+  
+  .carousel__image .title2 .content-amount2 {
+	font-size: 1rem;
+  }
+
+
+  /* Media Query 768px start from here */
 
 @media screen and (max-width: 800px) {
 	:root {
@@ -1946,7 +2034,8 @@ header {
 
 
 }
-		
+
+
 
  /* end 375px Media query here  */
 
@@ -2190,6 +2279,8 @@ header {
 		display: none;
 	}
 
+	
+
 	.productslide {
 		width: 100% !important;
 		margin: 25px auto !important;
@@ -2221,4 +2312,5 @@ header {
 
 
  }
+
 

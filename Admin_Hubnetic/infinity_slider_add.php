@@ -3,38 +3,36 @@
 include('../includes/connection.php');
 include('./include/allfunction.php');
 
+
 session_start();
 if(!isset($_SESSION['USERNAME']))
 {
    header('location:login.php');
 }
 
-
 if(isset($_POST['submit']))
 {
   $filename=$_FILES['image']['name'];
   $tempname=$_FILES['image']['tmp_name'];
-  
 
-  move_uploaded_file($tempname, 'uploads/Testimonial/' .$filename);
+  move_uploaded_file($tempname, 'uploads/Infinity/' .$filename);
 
   date_default_timezone_set('Asia/Kolkata');
 
   date('y-m-d h:i:sA');
 
   $data=array(
-    "image"=>"'".$filename."'",
-    "Head_content"=>"'".$_POST['head_content']."'",
     "subheading"=>"'".$_POST['subheading']."'",
-    "customer_name"=>"'".$_POST['c_name']."'",
-    "Reviews"=>"'".$_POST['r_customer']."'",
+    "heading"=>"'".$_POST['heading']."'",
+    "amount"=>"'".$_POST['amount']."'",
+    "url"=>"'".$_POST['url']."'",
+    "image"=>"'".$filename."'",
     "created_at"=>"'".date('y-m-d h:i:sA')."'"
   );
 
-  insert($data,'testimonials');
-  header("location:testimonial.php");
+  insert($data,'infinity_slider');
+  header("location:infinity_slider.php");
 }
-
 
 ?>
 
@@ -87,55 +85,48 @@ if(isset($_POST['submit']))
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-sm-11">
+            <div class="col-sm-12">
               <div class="home-tab">
                 
 
-              <center><h2 style="padding-bottom:30px;font-weight:900;">Testimonial Add Field!</h2> </center>      
-              <button type="add" name="add" style="float:right;margin-right:70px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial_add.php" style="text-decoration:none;color:white;"> Add Field</a></button>
-              <button type="back" name="back" style="float:left;margin-left: 32px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="testimonial.php" style="text-decoration:none;color:white;"> Back</a></button>
-              
-              <table class="table table-dark table-hover">
-    
-              <div class="container pt-5 my-5">
+              <center><h2 style="padding-bottom:30px;font-weight:900;">Infinity Slider Add</h2> </center>      
+              <button type="add" name="add" style="float:right;margin-right:50px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="infinity_slider_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+              <button type="back" name="back" style="float:left;margin-right:50px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="infinity_slider.php" style="text-decoration:none;color:white;"> Back</a></button>
+              <div class="container my-5">
             <form method="post" enctype="multipart/form-data">
-              
-                <label>Image</label>
-                <input type="file" class="form-control" name="image">
-                <br>
 
-                <div class="form-group">
-                <label>Head Content</label>
-                <input type="text" class="form-control" placeholder="Enter Your Head Content" name="head_content">
-              </div>
-
-              <div class="form-group">
+              <div class="form-group pt-5">
                 <label>Subheading</label>
                 <input type="text" class="form-control" placeholder="Enter Your Subheading" name="subheading">
               </div>
-            
               <br>
-
-                <div class="form-group">
-                <label>Customer Name</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Name" name="c_name">
-              </div>
-              <br>
-
 
               <div class="form-group">
-                <label>Customer Reviews</label>
-                <input type="text" class="form-control" placeholder="Enter Customer Reviews" name="r_customer">
+                <label>Heading</label>
+                <input type="text" class="form-control" placeholder="Enter Your Heading" name="heading">
+              </div>
+              <br>
+              
+
+              <div class="form-group">
+                <label>Amount</label>
+                <input type="text" class="form-control" placeholder="Enter Your Amount" name="amount">
               </div>
               <br>
 
+              <div class="form-group">
+                <label>Product Link</label>
+                <input type="text" class="form-control" placeholder="Enter Your Product Url" name="url">
+              </div>
+              <br>
 
+              <label>Image</label>
+                <input type="file" class="form-control" name="image">
+                <br>
 
-              <button type="submit" name="submit" style="font-size: 16px;padding:14px 24px;font-weight:700;" class="btn btn-primary">Add Field</button>
+              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
-              
-                
               </div>
             </div>
           </div>

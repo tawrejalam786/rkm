@@ -3,8 +3,6 @@
 include('../includes/connection.php');
 include('./include/allfunction.php');
 
-//$data= editdata('best_seller','3');
-
 session_start();
 if(!isset($_SESSION['USERNAME']))
 {
@@ -15,7 +13,7 @@ if(isset($_GET['delid']))
 {
   $id=$_GET['delid'];
 
-  deletedata('best_seller',$id);
+  deletedata('tabbar',$id);
 }
 
 ?>
@@ -73,41 +71,47 @@ if(isset($_GET['delid']))
               <div class="home-tab">
                 
 
-              <center><h2 style="padding-bottom:20px;font-weight:900;">Best Seller</h2> </center>      
-              <button type="add" name="add" style="float:right;color:white;padding:12px 24px;" class="btn btn-primary"> <a href="bests_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+              <center><h2 style="padding-bottom:30px;font-weight:900;">Tabbar Section!</h2> </center>      
+              <button type="add" name="add" style="float:right;margin-right:0px;color:white;padding:14px 28px;font-weight:700;font-size:14px;" class="btn btn-primary"> <a href="tabbar_add.php" style="text-decoration:none;color:white;"> Add</a></button>
+              
               <div class="table-responsive" style="overflow-y: hidden;padding-top:40px;">
               <table class="table table-dark table-hover" border="1px solid">
-              <thead>
-                <tr>            
-                  <th>Heading</th>
-                  <th>Image</th>
-                  <th>Amount</th>
-                  <th>Status</th>           
-                </tr>
-              </thead>
-              <tbody>
+    <thead>
+      <tr>
+         <th>Icons</th>
+        <th>Name Text</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
 
-              <?php
+     <?php
 
-        $select=whiledata("best_seller");
+    $select= whiledata("tabbar");
 
-        while($data=mysqli_fetch_array($select))
-         { ?>
-                <tr>            
-                  <td><?php echo $data['heading']; ?></td>
-                  <td><img src="../admin/uploads/<?php echo $data['image']; ?>" style="height: 80px;"></td>
-                  <td><?php echo $data['amount']; ?></td>
-                  <td>
-                    <a href="bests_edit.php?editid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to edit this data')" class="text-light btn btn-primary">Edit</a>
+    while($data=mysqli_fetch_array($select))
 
-                    <a href="bests.php?delid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to delete this data')" class="text-light btn btn-danger">Delete</a>
-                  </td>
-                </tr>
-              </tbody>
-              <?php } ?>
-            </table>
-            
-        </div>
+    {
+
+    ?>
+
+
+      <tr>
+        <td><img src="../Admin_Hubnetic/uploads/Tabbar/<?php echo $data['icon']; ?>" style="height: 80px;"></td>
+        <td style="word-wrap: break-word;max-width: 160px;white-space: normal!important;"><?php echo $data['text']; ?></td>
+        <td>
+        <a href="tabbar_edit.php?editid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to Edit this data')" class="text-light btn btn-primary">Edit</a>
+
+        <a href="tabbar.php?delid=<?php echo $data['id']; ?>" onclick="return confirm('Do you want to delete this data')" class="text-light btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    
+    </tbody>
+    <?php } ?>
+  
+  </table>
+</div>
+
               
               </div>
             </div>
@@ -152,4 +156,3 @@ if(isset($_GET['delid']))
 </body>
 
 </html>
-

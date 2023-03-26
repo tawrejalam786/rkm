@@ -48,7 +48,8 @@
               }
             }else{
               $otp=rand(100000,999999);
-              $insert=("INSERT INTO otp_vry ('Email','Otp') VALUES ($email,$otp)");
+              print_r($otp);
+              $insert=("INSERT INTO otp_vry WHERE ('Email','Otp') VALUES ($email,$otp)");
              // print_r($insert);
               $to = 'tawreja.786@gmail.com';
                $subject = 'Admin Panel Mail Verification';
